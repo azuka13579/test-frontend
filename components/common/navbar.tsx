@@ -35,7 +35,6 @@ export default function Navbar() {
         {navLinks.map((link) => {
           // PERUBAHAN DI SINI:
           // 1. Jika link Home ('/'), harus sama persis.
-          // 2. Jika link lain, cukup cek apakah pathname diawali dengan href tersebut.
           const isActive =
             link.href === "/"
               ? pathname === "/"
