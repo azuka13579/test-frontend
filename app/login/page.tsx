@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation"; // Tambah useSearchParams
 import toast from "react-hot-toast";
-import { useAuth } from "@/hooks/useAuth"; // Sesuaikan path import
+import { useAuth } from "@/hooks/useAuth";
+import Cookies from "js-cookie";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -12,27 +13,29 @@ export default function LoginPage() {
     password: "",
   });
 
-  // Ambil state isLogin dan fungsi login dari context
   const { login, isLogin, isLoading } = useAuth();
-  const router = useRouter();
+
+  const searchParams = useSearchParams(); // Ambil param dari URL
+
+  // Logic Toast dari Middleware
+  useEffect(() => {
+    if (Cookies.get("error")) {
+      toast.error("Login duluuu", { id: "auth-error" });
+      Cookies.remove("error");
+    }
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      // Panggil login dari context
       const res = await login(formData);
       toast.success(res.data.message || "Login Berhasil!");
     } catch (err: any) {
-      // Tampilkan toast error
       const errorMessage = err?.response?.data?.message || "Login Gagal";
       toast.error(errorMessage);
     }
   };
-
-  useEffect(() => {
-    router.push("/login");
-  });
 
   return (
     <div className="flex justify-center items-center grow">

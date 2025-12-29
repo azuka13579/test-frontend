@@ -1,0 +1,118 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Introduction to JSON Server",
+      "views": 450,
+      "author": "DevMaster"
+    },
+    {
+      "id": "2",
+      "title": "Understanding JavaScript Promises",
+      "views": 1200,
+      "author": "CodeWizard"
+    },
+    {
+      "id": "3",
+      "title": "10 Tips for CSS Layouts",
+      "views": 890,
+      "author": "DesignGuru"
+    },
+    {
+      "id": "4",
+      "title": "Why React is still popular in 2024",
+      "views": 3200,
+      "author": "ReactFan"
+    },
+    {
+      "id": "5",
+      "title": "Python vs Go: A Performance Review",
+      "views": 560,
+      "author": "BackendPro"
+    },
+    {
+      "id": "6",
+      "title": "The future of AI in Web Development",
+      "views": 4100,
+      "author": "Futurist"
+    },
+    {
+      "id": "7",
+      "title": "Deploying apps with Docker",
+      "views": 230,
+      "author": "DevOpsGuy"
+    },
+    {
+      "id": "8",
+      "title": "Healthy habits for programmers",
+      "views": 1500,
+      "author": "HealthCode"
+    },
+    {
+      "id": "9",
+      "title": "Understanding REST API Architecture",
+      "views": 670,
+      "author": "APIMaster"
+    },
+    {
+      "id": "10",
+      "title": "My journey as a Junior Developer",
+      "views": 980,
+      "author": "NewbieDev"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "This helped me understand the basics, thanks!",
+      "postId": "1"
+    },
+    { "id": "2", "text": "Can you explain more about routing?", "postId": "1" },
+    { "id": "3", "text": "Great article, very clear.", "postId": "2" },
+    {
+      "id": "4",
+      "text": "I was stuck on promises for weeks, finally got it.",
+      "postId": "2"
+    },
+    {
+      "id": "5",
+      "text": "Grid vs Flexbox, which one do you prefer?",
+      "postId": "3"
+    },
+    {
+      "id": "6",
+      "text": "Awesome tips, saving this for later.",
+      "postId": "3"
+    },
+    {
+      "id": "7",
+      "text": "I think Vue is also catching up fast.",
+      "postId": "4"
+    },
+    { "id": "8", "text": "Agreed, the ecosystem is huge.", "postId": "4" },
+    {
+      "id": "9",
+      "text": "Go concurrency model is just superior.",
+      "postId": "5"
+    },
+    { "id": "10", "text": "Interesting benchmark.", "postId": "5" },
+    {
+      "id": "11",
+      "text": "AI will simply be a tool, not a replacement.",
+      "postId": "6"
+    },
+    { "id": "12", "text": "Scary but exciting times!", "postId": "6" },
+    { "id": "13", "text": "Docker simplifies everything.", "postId": "7" },
+    { "id": "14", "text": "Don't forget to stretch!", "postId": "8" },
+    { "id": "15", "text": "Water intake is key.", "postId": "8" },
+    { "id": "16", "text": "Is GraphQL better than REST?", "postId": "9" },
+    { "id": "17", "text": "Good luck on your journey!", "postId": "10" },
+    { "id": "18", "text": "Keep coding every day.", "postId": "10" }
+  ],
+  "profile": {
+    "name": "typicode",
+    "email": "admin@typicode.com",
+    "role": "Administrator",
+    "bio": "Open source maintainer and tech enthusiast."
+  }
+}
