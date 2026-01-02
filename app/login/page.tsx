@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter, useSearchParams } from "next/navigation"; // Tambah useSearchParams
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { useAuth } from "@/hooks/useAuth";
 import Cookies from "js-cookie";
 
-export default function LoginPage() {
+export function LoginContent() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -73,5 +73,16 @@ export default function LoginPage() {
         </form>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    // Fallback adalah tampilan loading sementara URL sedang dibaca
+    <Suspense
+      fallback={<div className="text-center p-10">Loading Form...</div>}
+    >
+      <LoginContent />
+    </Suspense>
   );
 }
