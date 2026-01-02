@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useAuth } from "@/hooks/useAuth"; // Sesuaikan path import
 
+export const dynamic = "force-dynamic";
+
 export default function LoginPage() {
   const [formData, setFormData] = useState({
     username: "",
