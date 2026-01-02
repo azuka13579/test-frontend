@@ -1,20 +1,51 @@
-import Image from "next/image";
-import background from "../../public/background.png";
-export default function About() {
+import { getSheetData, GuestBookEntry } from "@/lib/googlesheet";
+import GuestbookForm from "@/components/spreadsheet/form";
+
+// Opsi konfigurasi Route Segment
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  // TS akan tahu bahwa 'comments' adalah array of GuestBookEntry
+  const comments: GuestBookEntry[] = await getSheetData();
+
   return (
-    <div className="">
-      <div>About page</div>
-      <div className="flex justify-center items-center flex-col">
-        <Image
-          src={
-            "https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          }
-          alt="About Image"
-          width={500}
-          height={300}
-        ></Image>
-        <Image src={background} alt="About Image"></Image>
+    <main className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-8">
+          Buku Tamu (TypeScript)
+        </h1>
+
+        <GuestbookForm />
+
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-gray-700">
+            Komentar Terbaru ({comments.length})
+          </h3>
+
+          {comments.length === 0 ? (
+            <p className="text-center text-gray-500 italic">
+              Belum ada komentar.
+            </p>
+          ) : (
+            comments.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <h4 className="font-bold text-gray-800 text-lg">
+                    {item.Nama}
+                  </h4>
+                  <span className="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">
+                    {item.Tanggal}
+                  </span>
+                </div>
+                <p className="text-gray-600 leading-relaxed">{item.Komentar}</p>
+              </div>
+            ))
+          )}
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
