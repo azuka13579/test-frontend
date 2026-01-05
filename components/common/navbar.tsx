@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import toast from "react-hot-toast";
 import { useAuth } from "@/hooks/useAuth";
 import { BellRing } from "lucide-react";
 
-export default function Navbar() {
+export function Navbar() {
   const pathname = usePathname();
   const { isLogin, logout, isLoading, user } = useAuth();
 

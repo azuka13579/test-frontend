@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/common/navbar"; // Pastikan path @/...
+import { Navbar } from "@/components/common/navbar"; // Pastikan path @/...
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/hooks/useAuth";
 

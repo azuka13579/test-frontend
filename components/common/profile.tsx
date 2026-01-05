@@ -1,7 +1,9 @@
+"use client";
+
 import { useAuth } from "@/hooks/useAuth";
 import React from "react";
 
-export default function profile() {
+export function Profile() {
   const { user, isLoading } = useAuth();
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">

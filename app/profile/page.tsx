@@ -9,7 +9,7 @@ import { fetchPostsUser } from "@/api/post";
 import { Post } from "@/types/post";
 import PostCard from "@/components/post/postcard";
 import { useAuth } from "@/hooks/useAuth";
-import Profile from "@/components/common/profile";
+import { Profile } from "@/components/common/profile";
 
 type MetaData = {
   current_page: number;
