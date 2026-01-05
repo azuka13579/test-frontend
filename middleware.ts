@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   // 1. Tentukan halaman mana saja yang BOLEH diakses tanpa login (Public)
   // Perhatikan: "/" (Home) saya hapus dari sini.
   // Artinya jika user buka website kamu, dia langsung dipaksa login.
-  const publicRoutes = ["/login", "/register"];
+  const publicRoutes = ["/login", "/register", "/about"];
 
   // 2. Cek apakah user sedang berada di halaman Public
   // Kita pakai .some() agar sub-halaman (misal /register/verification) juga dianggap public

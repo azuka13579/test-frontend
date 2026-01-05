@@ -1,11 +1,12 @@
 "use client";
 
 import { submitGuestbook } from "@/app/about/action";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function GuestbookForm() {
   // Definisikan tipe ref ke elemen HTML Form
   const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6 mb-8 border border-gray-100">
@@ -13,8 +14,10 @@ export default function GuestbookForm() {
 
       <form
         action={async (formData) => {
+          setLoading(true);
           await submitGuestbook(formData);
           formRef.current?.reset();
+          setLoading(false);
         }}
         ref={formRef}
         className="space-y-4"
@@ -30,7 +33,6 @@ export default function GuestbookForm() {
             type="text"
             name="nama"
             id="nama"
-            required
             placeholder="Azka Raditya"
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
           />
@@ -46,7 +48,6 @@ export default function GuestbookForm() {
           <textarea
             name="komentar"
             id="komentar"
-            required
             rows={3}
             placeholder="Tulis pesan anda di sini..."
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all resize-none"

@@ -61,30 +61,6 @@ export default function TambahStudentPage() {
     },
   });
 
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   student_id: "",
-  //   email: "",
-  // });
-
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   setLoading(true);
-
-  //   try {
-  //     const res = await createStudent(formData);
-  //     toast.success(res.message);
-  //     setFormData({ name: "", student_id: "", email: "" });
-
-  //     router.push("/students");
-  //     setLoading(false);
-  //   } catch (error: any) {
-  //     toast.error(error.response.data.message);
-  //     setLoading(false);
-  //   }
-  // };
-
   return (
     <div>
       <h1>Tambah Student Page</h1>
