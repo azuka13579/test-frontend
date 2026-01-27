@@ -7,9 +7,8 @@ const api = axios.create({
   },
 });
 
-// Interceptor: Setiap request akan dicek apakah ada token di cookie
 api.interceptors.request.use((config) => {
-  const token = Cookies.get("auth_token"); // Ambil token dari JS Cookie
+  const token = Cookies.get("auth_token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
