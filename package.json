@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@floating-ui/utils": "^0.2.10",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-popover": "^1.1.15",
     "@radix-ui/react-separator": "^1.1.8",
