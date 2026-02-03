@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0f172a;
+  color: white;
+  overflow: hidden;
+}
+
+/* Background Animation */
+.background {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top left, #6366f1, transparent 40%),
+              radial-gradient(circle at bottom right, #22d3ee, transparent 40%);
+  animation: move 10s infinite alternate;
+}
+
+@keyframes move {
+  from { filter: blur(0px); }
+  to { filter: blur(20px); }
+}
+
+/* Navbar */
+nav {
+  position: relative;
+  z-index: 2;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+nav button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 2;
+  max-width: 400px;
+  margin: 120px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.name span {
+  color: #38bdf8;
+}
+
+.desc {
+  margin: 15px 0 30px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.btn {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {

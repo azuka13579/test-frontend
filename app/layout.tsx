@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/common/navbar"; // Pastikan path @/...
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/hooks/useAuth";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/common/sidebar";
+import Navbar from "@/components/common/navbar";
 
 const fontSans = Source_Sans_3({
   variable: "--font-sans",
@@ -16,7 +18,7 @@ const jetBrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aplikasi Sekolah",
+  title: "AAAAA",
   description: "Dashboard Sekolah",
 };
 
@@ -30,18 +32,21 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${jetBrains.variable} antialiased `}
       >
-        <AuthProvider>
-          <div className="min-h-screen flex flex-col p-4 font-sans">
-            <Navbar />
-            {children}
-            <Toaster
-              position="bottom-right"
-              toastOptions={{
-                duration: 3000,
-              }}
-            />
-          </div>
-        </AuthProvider>
+        <SidebarProvider>
+          <AuthProvider>
+            <AppSidebar></AppSidebar>
+            <div className="min-h-screen font-sans w-full">
+              <Navbar />
+              {children}
+              <Toaster
+                position="bottom-right"
+                toastOptions={{
+                  duration: 3000,
+                }}
+              />
+            </div>
+          </AuthProvider>
+        </SidebarProvider>
       </body>
     </html>
   );
